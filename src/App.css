@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+.app {
+  height: 100%;
+  min-height: 320px;
+  display: grid;
+  grid-template-areas:
+      "map"
+      "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 60px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.map {
+  grid-area: map;
+  min-height: 410px;
+  padding: 12px;
+  overflow: hidden;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.map__layout {
+  max-width: 84%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 12px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  background-color: #F2F2F2;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.map__header,
+.map__text {
+  margin: 0 auto;
+  padding: 12px 0;
+  font-size: 24px;
+  text-align: center;
+}
+.map__text {
+  font-size: 16px;
+}
+.map__loading,
+.map__error {
+  margin: 0 auto;
+  padding: 128px 0;
+  font-size: 12px;
+  font-weight: 300;
+  color: #000000ab;
+}
+.map__errorButton {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 700;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #bf5555;
+  cursor: pointer;
+}
+.map__errorButton:hover,
+.map__errorButton:focus{
+  outline: none;
+  opacity: .6;
+}
+.map__errorButton:active {
+  opacity: 1;
+}
+.map__svg {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+.map__tooltip {
+  min-width: 150px;
+  position: absolute;
+  top: 0;
+  padding: 12px;
+  background-color: #403030e0;
+  color: #f2f2f2;
+  border-radius: 6px;
+  font-size: 16px;
+  white-space: pre-line;
+  user-select: none;
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.map__state {
+  fill: none;
+  stroke: #bf5555;
+  stroke-linejoin: round;
+}
+footer {
+  grid-area: footer;
+  padding: 0 10px;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #bf5555;
 }
-
-.App-link {
-  color: #61dafb;
+.footer__link {
+  text-decoration:none;
+  color:#000;
+  font-weight:600;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 414px) {
+  .map__layout {
+    max-width: 94%;
   }
 }
